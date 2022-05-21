@@ -53,7 +53,7 @@ public class ControllerCadEndereco implements ActionListener {
 	    Cidade tempCidade = cidadeDAO.retrieve(telaCadEndereco.getjComboBoxCidade().getSelectedItem().toString());
 
 
-          List<Bairro> list = bairroDAO.retrieveDesc(tempCidade.getIdCidade());
+          List<Bairro> list = bairroDAO.retrieve();
 	  telaCadEndereco.getjComboBoxBairro().removeAllItems();
           for(Bairro item: list){
 	    telaCadEndereco.getjComboBoxBairro().addItem(item.getDescricaoBairro());

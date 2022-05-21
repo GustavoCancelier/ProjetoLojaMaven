@@ -1,10 +1,30 @@
 package com.fernandoegustavo.projetolojamaven.model.bo;
-public class ItensCompra {
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+@Entity
+public class ItensCompra implements Serializable{
+	
+	@Id
     private int iditensCompra;
-    private Compra compra_idcompra;
-    private CaracteristicaProduto caracteristicaProduto_idCaracteristicaProduto;
-    private float qtdProduto;
-    private float valunitarioProduto;
+    
+	@ManyToOne
+	private Compra compra_idcompra;
+    
+	@OneToOne
+	private CaracteristicaProduto caracteristicaProduto_idCaracteristicaProduto;
+    
+	@Column
+	private float qtdProduto;
+    
+	@Column
+	private float valunitarioProduto;
 
     public ItensCompra() {
     }

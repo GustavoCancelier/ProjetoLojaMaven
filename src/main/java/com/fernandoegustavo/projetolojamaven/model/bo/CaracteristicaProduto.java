@@ -1,10 +1,31 @@
 package com.fernandoegustavo.projetolojamaven.model.bo;
-public class CaracteristicaProduto {
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class CaracteristicaProduto implements Serializable{
+	
+	@Id
     private int idCaracteristicaProduto;
-    private Produto produto_idproduto;
-    private Cor cor_idcor;
-    private String tamanhoProduto;
-    private String barraProduto;
+    
+	@OneToOne
+	private Produto produto_idproduto;
+    
+	@OneToOne
+	private Cor cor_idcor;
+    
+	@Column
+	private String tamanhoProduto;
+    
+	@Column
+	private String barraProduto;
+    
+	@Column
     private float qtdEstoqueProduto;
 
     public CaracteristicaProduto() {

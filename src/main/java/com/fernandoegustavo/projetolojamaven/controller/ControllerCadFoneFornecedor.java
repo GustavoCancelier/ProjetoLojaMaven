@@ -54,7 +54,7 @@ public class ControllerCadFoneFornecedor implements ActionListener {
 
 	    String tempString = this.telaCadFoneFornecedor.getjComboBoxFornecedor().getSelectedItem().toString();
 
-	    fornecedor = fornecedorDAO.retrieveCNPJ(tempString);
+	    fornecedor = fornecedorDAO.retrieve(tempString);
 	    
             foneFornecedor.setFoneFornecedor(this.telaCadFoneFornecedor.getjFormattedTextFieldFone().getText());
 	    foneFornecedor.setFornecedor_idfornecedor(fornecedor);

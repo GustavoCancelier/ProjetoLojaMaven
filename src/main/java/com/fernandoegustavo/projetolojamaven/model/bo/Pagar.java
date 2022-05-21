@@ -1,15 +1,44 @@
 package com.fernandoegustavo.projetolojamaven.model.bo;
-public class Pagar {
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Pagar implements Serializable{
+	
+	@Id
     private int idpagar;
-    private Compra compra_idcompra;
-    private String dtHrEmissaoPagar;
-    private String dtVencimentoPagar;
-    private float valemitidoPagar;
-    private float acrescimoPagar;
-    private float descontoPagar;
-    private String dtHrPgtoPagar;
-    private float valPagoPagar;
-    private String statusPagar;
+    
+	@OneToOne
+	private Compra compra_idcompra;
+    
+	@Column
+	private String dtHrEmissaoPagar;
+    
+	@Column
+	private String dtVencimentoPagar;
+    
+	@Column
+	private float valemitidoPagar;
+    
+	@Column
+	private float acrescimoPagar;
+    
+	@Column
+	private float descontoPagar;
+    
+	@Column
+	private String dtHrPgtoPagar;
+    
+	@Column
+	private float valPagoPagar;
+    
+	@Column
+	private String statusPagar;
 
     public Pagar() {
     }

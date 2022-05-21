@@ -1,15 +1,44 @@
 package com.fernandoegustavo.projetolojamaven.model.bo;
-public class Receber {
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Receber implements Serializable{
+	
+	@Id
     private int idreceber;
-    private Venda venda_idvenda;
-    private String dtHremissaoRec;
-    private float ValEmissaoRec;
-    private String dtVencimentoRec;
-    private String dtPgtoRec;
-    private float acrescimoRec;
-    private float descontoRec;
-    private float valPagoRec;
-    private String statusRec;
+    
+	@OneToOne
+	private Venda venda_idvenda;
+    
+	@Column
+	private String dtHremissaoRec;
+    
+	@Column
+	private float ValEmissaoRec;
+    
+	@Column
+	private String dtVencimentoRec;
+    
+	@Column
+	private String dtPgtoRec;
+    
+	@Column
+	private float acrescimoRec;
+    
+	@Column
+	private float descontoRec;
+    
+	@Column
+	private float valPagoRec;
+    
+	@Column
+	private String statusRec;
 
     public Receber() {
     }

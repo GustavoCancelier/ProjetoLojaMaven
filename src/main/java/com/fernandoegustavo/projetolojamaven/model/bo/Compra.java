@@ -1,13 +1,38 @@
 package com.fernandoegustavo.projetolojamaven.model.bo;
-public class Compra {
-    private int idcompra;
-    private Fornecedor fornecedor_idfornecedor;
-    private CondicaoPagamento condicaoPagamento_idcondicaoPagamento;
-    private int numNFCompra;
-    private String serieNFCompra;
-    private String dtHRCompra;
-    private float descontoCompra;
-    private float valorTotalCompra;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Compra implements Serializable {
+
+	@Id
+	private int idcompra;
+    
+	@OneToOne
+	private Fornecedor fornecedor_idfornecedor;
+    
+	@OneToOne
+	private CondicaoPagamento condicaoPagamento_idcondicaoPagamento;
+    
+	@Column
+	private int numNFCompra;
+    
+	@Column
+	private String serieNFCompra;
+    
+	@Column
+	private String dtHRCompra;
+    
+	@Column
+	private float descontoCompra;
+    
+	@Column
+	private float valorTotalCompra;
 
     public Compra() {
     }
