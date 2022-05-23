@@ -5,24 +5,27 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Endereco implements Serializable {
     
-    @Id
+    @Id 
     private int idCep;
     
-    @Column
+    @Column (name = "cepCep")
     private String cepCep;
     
-    @Column
+    @Column (name = "logradouroCep")
     private String logradouroCep;
     
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn (name = "cidade_idcidade")
     private Cidade cidade;
     
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn (name = "bairro_idbairro")
     private Bairro bairro;
 
     public Endereco() {

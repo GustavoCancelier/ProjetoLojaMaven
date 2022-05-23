@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -17,16 +18,17 @@ public class Fornecedor extends Pessoa implements Serializable {
     @Id
     private int idfornecedor;
     
-    @Column
+    @Column (name = "razaoSocialFornecedor")
     private String razaoSocialFornecedor;
     
-    @Column
+    @Column (name = "cnpjFornecedor")
     private String cnpjFornecedor;
     
-    @Column
+    @Column (name = "inscEstadualFornecedor")
     private String inscEstadualFornecedor;
     
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn (name = "endereco_idcep")
     private Endereco endereco_idcep;
 
     public Fornecedor() {

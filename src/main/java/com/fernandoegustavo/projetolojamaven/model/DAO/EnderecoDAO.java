@@ -98,7 +98,7 @@ private static EnderecoDAO instance;
 
     @Override
     public Endereco retrieve(String descricao) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return entityManager.find(Endereco.class, descricao);
     }
 
 

@@ -56,7 +56,7 @@ public class ControllerCadFornecedor implements ActionListener {
 	    EnderecoDAO enderecoDAO = new EnderecoDAO();
 	    CidadeDAO cidadeDAO = new CidadeDAO();
 	    
-	    Cidade tempCidade = cidadeDAO.retrieve(telaCadFornecedor.getjComboBoxCidade().getSelectedItem().toString());
+//	    Cidade tempCidade = cidadeDAO.retrieve(telaCadFornecedor.getjComboBoxCidade().getSelectedItem().toString());
 
 
           List<Endereco> list = enderecoDAO.retrieve();

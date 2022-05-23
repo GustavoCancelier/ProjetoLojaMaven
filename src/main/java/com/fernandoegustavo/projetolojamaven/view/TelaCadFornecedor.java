@@ -23,7 +23,8 @@ public class TelaCadFornecedor extends javax.swing.JFrame {
      */
     public TelaCadFornecedor() {
         initComponents();
-	carregarComboCidade();
+//	carregarComboCidade();
+        jComboBoxCidade.addItem("ASD");
     }
     
     public void carregarComboCidade(){

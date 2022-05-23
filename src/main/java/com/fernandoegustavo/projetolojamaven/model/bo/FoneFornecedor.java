@@ -12,7 +12,8 @@ import javax.persistence.ManyToOne;
 @Entity
 public class FoneFornecedor implements Serializable {
     
-    @Id
+	@Id
+    @Column (name = "foneFornecedor")
     private String foneFornecedor;
     
     @ManyToOne(fetch = FetchType.LAZY)

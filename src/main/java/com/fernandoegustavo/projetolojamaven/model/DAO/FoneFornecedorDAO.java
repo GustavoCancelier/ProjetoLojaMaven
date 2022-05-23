@@ -13,6 +13,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 
+
 public class FoneFornecedorDAO implements InterfaceDAO<FoneFornecedor>{
 private static FoneFornecedorDAO instance;
     protected EntityManager entityManager;

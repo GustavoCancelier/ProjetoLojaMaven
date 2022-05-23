@@ -97,7 +97,7 @@ private static CidadeDAO instance;
 
     @Override
     public Cidade retrieve(String descricao) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return entityManager.find(Cidade.class, descricao);
     }
 
 

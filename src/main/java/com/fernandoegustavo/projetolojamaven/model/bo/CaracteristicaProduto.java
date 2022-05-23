@@ -5,27 +5,31 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
 public class CaracteristicaProduto implements Serializable{
 	
 	@Id
+	@Column (name = "idCaracteristicaProduto")
     private int idCaracteristicaProduto;
     
 	@OneToOne
+	@JoinColumn (name = "produto_idProduto")
 	private Produto produto_idproduto;
     
 	@OneToOne
+	@JoinColumn (name = "cor_idcor")
 	private Cor cor_idcor;
     
-	@Column
+	@Column (name = "tamanhoProduto")
 	private String tamanhoProduto;
     
-	@Column
+	@Column (name = "barraProduto")
 	private String barraProduto;
     
-	@Column
+	@Column (name = "qtdEstoqueProduto")
     private float qtdEstoqueProduto;
 
     public CaracteristicaProduto() {

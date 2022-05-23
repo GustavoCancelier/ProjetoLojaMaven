@@ -97,7 +97,7 @@ public class CaracteristicaProdutoDAO implements InterfaceDAO<CaracteristicaProd
 
     @Override
     public CaracteristicaProduto retrieve(String descricao) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return entityManager.find(CaracteristicaProduto.class, descricao);
     }
 
 
