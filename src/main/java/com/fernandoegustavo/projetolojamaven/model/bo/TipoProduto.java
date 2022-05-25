@@ -4,14 +4,17 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table (name = "tipoProduto")
 public class TipoProduto implements Serializable {
     
     @Id
+    @Column (name = "idTipoProduto")
     private int idTipoProduto;
     
-    @Column 
+    @Column (name = "descricaoTipoProduto")
     private String descricaoTipoProduto;
 
     public TipoProduto() {

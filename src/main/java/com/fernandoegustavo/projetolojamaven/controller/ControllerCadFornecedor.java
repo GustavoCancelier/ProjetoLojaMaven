@@ -58,12 +58,18 @@ public class ControllerCadFornecedor implements ActionListener {
 	    
 //	    Cidade tempCidade = cidadeDAO.retrieve(telaCadFornecedor.getjComboBoxCidade().getSelectedItem().toString());
 
-
-          List<Endereco> list = enderecoDAO.retrieve();
-	  telaCadFornecedor.getjComboBoxCEP().removeAllItems();
-          for(Endereco item: list){
-	    telaCadFornecedor.getjComboBoxCEP().addItem(item.getCepCep());
-          }
+//          List<Cidade> cidadeList = cidadeDAO.retrieve();
+//	  telaCadFornecedor.getjComboBoxCidade().removeAllItems();
+//          for(Cidade item: cidadeList){
+//	    telaCadFornecedor.getjComboBoxCidade().addItem(item);
+//          }
+//
+//
+//          List<Endereco> list = enderecoDAO.retrieve();
+//	  telaCadFornecedor.getjComboBoxCEP().removeAllItems();
+//          for(Endereco item: list){
+//	    telaCadFornecedor.getjComboBoxCEP().addItem(item);
+//          }
 	  }
     
         if (acao.getSource() == telaCadFornecedor.getjButtonNovo()) {
@@ -86,7 +92,10 @@ public class ControllerCadFornecedor implements ActionListener {
             fornecedor.setEmail(this.telaCadFornecedor.getEmail().getText());
             fornecedor.setCompleEndereco(this.telaCadFornecedor.getCompleEndereco().getText());
             fornecedor.setEndereco_idcep(enderecoDAO.retrieve(this.telaCadFornecedor.getjComboBoxCEP().getSelectedItem().toString()));
-            
+	    
+	    fornecedor.setEndereco_idcep((Endereco) this.telaCadFornecedor.getjComboBoxCEP().getSelectedItem());
+
+
             FornecedorService fornecedorService = new FornecedorService();
             if (this.telaCadFornecedor.getjTFIdFornecedor().getText().trim().equalsIgnoreCase("")) {
                 fornecedorService.salvar(fornecedor);

@@ -163,12 +163,15 @@ public class ControllerCadVendas implements ActionListener {
     //Não foram desenvolvidas ainda as funcionalidades de persistência
 
     public void AddTable(String codBarra) {
+
 	 counter = 0;
 	 CaracteristicaProdutoService caracteristicaProdutoService = new CaracteristicaProdutoService();
 	 CaracteristicaProduto caracteristicaProduto = new CaracteristicaProduto();
 	 
 	 caracteristicaProduto = caracteristicaProdutoService.buscar(codBarra);
-	 
+	 System.out.println(caracteristicaProduto.getBarraProduto());
+
+
 	    counter++;
             DefaultTableModel tabela = (DefaultTableModel) this.telaVendas.getjTable1().getModel();
             tabela.addRow(new Object[]{ counter,

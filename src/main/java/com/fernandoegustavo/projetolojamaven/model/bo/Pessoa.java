@@ -1,22 +1,28 @@
 package com.fernandoegustavo.projetolojamaven.model.bo;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 
+
+@MappedSuperclass
 public abstract class Pessoa {
+    @Column
     private String nome;
+    
+    @Column
     private String compleEndereco;
-    private String cep;
+    
+    @Column
     private String email;
-    private String status;
+    
 
     public Pessoa() {
     }
 
-    public Pessoa(String nome, String compleEndereco, String cep, String email, String status) {
+    public Pessoa(String nome, String compleEndereco, String email) {
         this.nome = nome;
         this.compleEndereco = compleEndereco;
-        this.cep = cep;
         this.email = email;
-        this.status = status;
     }
 
     public String getNome() {
@@ -33,14 +39,7 @@ public abstract class Pessoa {
 
     public void setCompleEndereco(String compleEndereco) {
         this.compleEndereco = compleEndereco;
-    }
-
-    public String getCep() {
-        return cep;
-    }
-
-    public void setCep(String cep) {
-        this.cep = cep;
+    
     }
 
     public String getEmail() {
@@ -51,13 +50,7 @@ public abstract class Pessoa {
         this.email = email;
     }
 
-    public String getStatus() {
-        return status;
-    }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     @Override
     public String toString() {

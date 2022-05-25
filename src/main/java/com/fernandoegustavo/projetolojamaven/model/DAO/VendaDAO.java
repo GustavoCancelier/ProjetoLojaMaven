@@ -96,7 +96,7 @@ private static VendaDAO instance;
 
     @Override
     public Venda retrieve(String descricao) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return entityManager.find(Venda.class, descricao);
     }
 
 

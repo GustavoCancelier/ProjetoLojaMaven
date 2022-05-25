@@ -52,7 +52,9 @@ private static CidadeDAO instance;
     
     @Override
     public List<Cidade> retrieve() {
-        List<Cidade> cidadesLista;
+	System.out.println("CidadeDao");        
+
+List<Cidade> cidadesLista;
         CriteriaQuery<Cidade> criteria = entityManager.getCriteriaBuilder().createQuery(Cidade.class);
 
         criteria.select(criteria.from(Cidade.class));
@@ -97,7 +99,12 @@ private static CidadeDAO instance;
 
     @Override
     public Cidade retrieve(String descricao) {
-        return entityManager.find(Cidade.class, descricao);
+	System.out.println(descricao);
+	System.out.println(entityManager.find(Cidade.class, descricao));
+
+	return entityManager.find(Cidade.class, descricao);
+
+	
     }
 
 

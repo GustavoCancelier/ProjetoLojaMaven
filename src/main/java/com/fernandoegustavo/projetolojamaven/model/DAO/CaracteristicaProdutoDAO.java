@@ -97,7 +97,9 @@ public class CaracteristicaProdutoDAO implements InterfaceDAO<CaracteristicaProd
 
     @Override
     public CaracteristicaProduto retrieve(String descricao) {
-        return entityManager.find(CaracteristicaProduto.class, descricao);
+        CaracteristicaProduto caracteristicaProduto = entityManager.createQuery(" SELECT c FROM CaracteristicaProduto c WHERE c.barraProduto = :descricao", 
+                CaracteristicaProduto.class).setParameter("descricao", descricao).getSingleResult();
+        return caracteristicaProduto;
     }
 
 

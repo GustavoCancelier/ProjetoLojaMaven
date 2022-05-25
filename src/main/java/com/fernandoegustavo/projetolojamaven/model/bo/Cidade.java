@@ -4,17 +4,19 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table (name = "cidade")
 public class Cidade implements Serializable {
     
     @Id
     private int idCidade;
     
-    @Column
+    @Column (name = "descricaoCidade")
     private String descricaoCidade;
     
-    @Column
+    @Column (name = "ufCidade")
     private String ufCidade;
     
 //    @OneToMany(mappedBy = "cidade")

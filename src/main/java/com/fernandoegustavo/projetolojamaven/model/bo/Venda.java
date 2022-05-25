@@ -5,38 +5,43 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Venda implements Serializable {
     @Id
+    @Column (name = "idvenda")
     private int idvenda;
     
-    @Column
+    @Column (name = "serieVenda")
     private String serieVenda;
     
-    @Column
-    private String dtVenda;
+    @Column (name = "dtVenda")
+    private String dtVenda; 
     
-    @Column
-    private String hrVenda;
+    @Column (name = "hrVenda")
+    private String hrVenda; 
     
-    @Column
+    @Column (name = "valDescontoVenda")
     private float valDescontoVenda;
     
-    @Column
+    @Column (name = "valTotalVenda")
     private float valTotalVenda;
     
     @OneToOne (fetch = FetchType.LAZY)
+    @JoinColumn (name = "cliente_idcliente")
     private Cliente cliente_idcliente;
     
     @OneToOne (fetch = FetchType.LAZY)
+    @JoinColumn (name = "vendedor_idvendedor")
     private Vendedor vendedor_idvendedor;
     
     @OneToOne (fetch = FetchType.LAZY)
+    @JoinColumn (name = "condicaoPagamento_idcondicaoPagamento")
     private CondicaoPagamento condicaoPagamento_idcondicaoPagamento;
     
-    @Column
+    @Column (name = "diaVencimentoParcela")
     private int diaVencimentoParcela;
 
     public Venda() {

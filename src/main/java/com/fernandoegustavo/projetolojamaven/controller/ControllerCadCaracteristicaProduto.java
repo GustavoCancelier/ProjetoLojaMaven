@@ -63,35 +63,40 @@ public class ControllerCadCaracteristicaProduto implements ActionListener {
             CaracteristicaProduto caracteristicaProduto = new CaracteristicaProduto();
 
 
-	    String tempProduto;
-            tempProduto = this.telaCadCaracteristicaProduto.getjComboBox1().getSelectedItem().toString();
+//	    String tempProduto;
+//            tempProduto = this.telaCadCaracteristicaProduto.getjComboBox1().getSelectedItem().toString();
+//
+//	    Produto produto = new Produto();
+//	    ProdutoDAO produtoDAO = new ProdutoDAO();
+//	    produto = produtoDAO.retrieve(tempProduto);
 
-	    Produto produto = new Produto();
-	    ProdutoDAO produtoDAO = new ProdutoDAO();
-	    produto = produtoDAO.retrieve(tempProduto);
+	    caracteristicaProduto.setCor_idcor((Cor) this.telaCadCaracteristicaProduto.getjComboBox2().getSelectedItem());
+	    caracteristicaProduto.setProduto_idproduto((Produto) this.telaCadCaracteristicaProduto.getjComboBox1().getSelectedItem());
+	    caracteristicaProduto.setTamanhoProduto("1");
+
 	    
 	    
-	    String tempCor;
-            tempCor = this.telaCadCaracteristicaProduto.getjComboBox2().getSelectedItem().toString();
-
-	    Cor cor = new Cor();
-	    CorDAO corDAO = new CorDAO();
-	    cor = corDAO.retrieve(tempProduto);
-
-	    String tempTamanho;
-            tempTamanho = this.telaCadCaracteristicaProduto.getjComboBox3().getSelectedItem().toString();
-
-	    Tamanho tamanho = new Tamanho();
-	    TamanhoDAO tamanhoDAO = new TamanhoDAO();
-	    tamanho = tamanhoDAO.retrieve(tempTamanho);
+//	    String tempCor;
+//            tempCor = this.telaCadCaracteristicaProduto.getjComboBox2().getSelectedItem().toString();
+//
+//	    Cor cor = new Cor();
+//	    CorDAO corDAO = new CorDAO();
+//	    cor = corDAO.retrieve(tempProduto);
+//
+//	    String tempTamanho;
+//            tempTamanho = this.telaCadCaracteristicaProduto.getjComboBox3().getSelectedItem().toString();
+//
+//	    Tamanho tamanho = new Tamanho();
+//	    TamanhoDAO tamanhoDAO = new TamanhoDAO();
+//	    tamanho = tamanhoDAO.retrieve(tempTamanho);
 
 
             
 	    caracteristicaProduto.setBarraProduto(this.telaCadCaracteristicaProduto.getjTFCodBarras().getText());
 	    caracteristicaProduto.setQtdEstoqueProduto(Float.parseFloat(this.telaCadCaracteristicaProduto.getjTFQtdEstoque().getText()));
-            caracteristicaProduto.setProduto_idproduto(produto);              
-	    caracteristicaProduto.setCor_idcor(cor);  
-            caracteristicaProduto.setTamanhoProduto(tamanho.getDescricaoTamanho());  
+//            caracteristicaProduto.setProduto_idproduto(produto);              
+//	    caracteristicaProduto.setCor_idcor(cor);  
+//            caracteristicaProduto.setTamanhoProduto(tamanho.getDescricaoTamanho());  
 
   
 

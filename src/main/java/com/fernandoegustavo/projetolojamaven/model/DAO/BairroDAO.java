@@ -54,12 +54,15 @@ private static BairroDAO instance;
     
     @Override
     public List<Bairro> retrieve() {
-        List<Bairro> cidadesLista;
+     	System.out.println("BairroDao");
+	List<Bairro> bairroLista;
         CriteriaQuery<Bairro> criteria = entityManager.getCriteriaBuilder().createQuery(Bairro.class);
 
         criteria.select(criteria.from(Bairro.class));
-        cidadesLista = entityManager.createQuery(criteria).getResultList();
-        return cidadesLista;
+        bairroLista = entityManager.createQuery(criteria).getResultList();
+        return bairroLista;
+
+
     }
     
     @Override
@@ -99,7 +102,7 @@ private static BairroDAO instance;
 
     @Override
     public Bairro retrieve(String descricao) {
-        throw new UnsupportedOperationException("Not supported yet.");
+	return entityManager.find(Bairro.class, descricao);
     }
 
 

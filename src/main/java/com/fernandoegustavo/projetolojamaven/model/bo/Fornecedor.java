@@ -8,14 +8,18 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table (name = "fornecedor")
 @AttributeOverride(name = "nome", column = @Column(name = "nomeFantasiaFornecedor"))
 @AttributeOverride(name = "email", column = @Column(name = "emailFornecedor"))
-@AttributeOverride(name = "complementoEndereco", column = @Column(name = "compleEnderecoFornecedor"))
+@AttributeOverride(name = "compleEndereco", column = @Column(name = "compleEnderecoFornecedor"))
+@AttributeOverride(name = "cep", column = @Column(name = "cep"))
 public class Fornecedor extends Pessoa implements Serializable {
     
     @Id
+    @Column (name = "idfornecedor")
     private int idfornecedor;
     
     @Column (name = "razaoSocialFornecedor")
@@ -35,7 +39,7 @@ public class Fornecedor extends Pessoa implements Serializable {
     }
 
     public Fornecedor(int idfornecedor, String razaoSocialFornecedor, String cnpjFornecedor, String inscEstadualFornecedor, Endereco endereco_idcep, String nome, String compleEndereco, String cep, String email, String status) {
-        super(nome, compleEndereco, cep, email, status);
+        super(nome, compleEndereco, email);
         this.idfornecedor = idfornecedor;
         this.razaoSocialFornecedor = razaoSocialFornecedor;
         this.cnpjFornecedor = cnpjFornecedor;

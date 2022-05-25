@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -13,29 +14,30 @@ public class Cliente extends Pessoa implements Serializable {
     @Id
     private int idcliente;
     
-    @Column
+    @Column (name = "dtNascCliente")
     private String dtNascCliente;
     
-    @Column
+    @Column (name = "cpfCliente")
     private String cpfCliente;
     
-    @Column
+    @Column (name = "rgCliente")
     private String rgCliente;
     
-    @Column
+    @Column (name = "foneCliente")
     private String foneCliente;
     
-    @Column
+    @Column (name = "fone2Cliente")
     private String fone2Cliente;
     
     @OneToOne (fetch = FetchType.LAZY)
+    @JoinColumn (name = "endereco_idcep")
     private Endereco endereco_idcep;
 
     public Cliente() {
     }
 
     public Cliente(int idcliente, String dtNascCliente, String cpfCliente, String rgCliente, String foneCliente, String fone2Cliente, Endereco endereco_idcep, String nome, String compleEndereco, String cep, String email, String status) {
-        super(nome, compleEndereco, cep, email, status);
+        super(nome, compleEndereco, email);
         this.idcliente = idcliente;
         this.dtNascCliente = dtNascCliente;
         this.cpfCliente = cpfCliente;

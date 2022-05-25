@@ -50,14 +50,6 @@ public class ControllerCadBairro implements ActionListener {
         } else if (acao.getSource() == telaCadBairro.getjButtonGravar()) {
             Bairro bairro = new Bairro();
 
-
-	    String tempString;
-            tempString = this.telaCadBairro.getjComboBox1().getSelectedItem().toString();
-
-	    Cidade cidade = new Cidade();
-	    CidadeDAO cidadeDAO = new CidadeDAO();
-	    cidade = cidadeDAO.retrieve(tempString);
-	    
 	    
             bairro.setDescricaoBairro(this.telaCadBairro.getjTFNomeBairro().getText());
 //            bairro.setCidadeMae(cidade.getIdCidade());  
@@ -66,7 +58,7 @@ public class ControllerCadBairro implements ActionListener {
             if (this.telaCadBairro.getjTFIdCidade().getText().trim().equalsIgnoreCase("")) {
                 bairroService.salvar(bairro);
             } else {
-                cidade.setIdCidade(Integer.parseInt(this.telaCadBairro.getjTFIdCidade().getText()));
+      
                 System.out.println("Verificar a linha acima e ver se é cidade no início ou bairro");
                 bairroService.atualizar(bairro);
             }

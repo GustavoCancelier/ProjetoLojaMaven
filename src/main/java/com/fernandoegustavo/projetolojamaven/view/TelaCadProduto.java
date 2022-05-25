@@ -40,7 +40,7 @@ public class TelaCadProduto extends javax.swing.JFrame {
           TamanhoDAO tamanhoDAO = new TamanhoDAO();
           List<Tamanho> list = tamanhoDAO.retrieve();
           for(Tamanho item: list){
-	    jComboBox1.addItem(item.getDescricaoTamanho());
+	    jComboBox1.addItem(item);
           }
 
     }  
@@ -50,7 +50,7 @@ public class TelaCadProduto extends javax.swing.JFrame {
           TipoProdutoDAO tipoProdutoDAO = new TipoProdutoDAO();
           List<TipoProduto> list = tipoProdutoDAO.retrieve();
           for(TipoProduto item: list){
-	    jComboBox2.addItem(item.getDescricaoTipoProduto());
+	    jComboBox2.addItem(item);
           }
 
     }  
@@ -60,7 +60,7 @@ public class TelaCadProduto extends javax.swing.JFrame {
           MarcaDAO marcaDAO = new MarcaDAO();
           List<Marca> list = marcaDAO.retrieve();
           for(Marca item: list){
-	    jComboBox3.addItem(item.getDescricaoMarca());
+	    jComboBox3.addItem(item);
           }
 
     }  
@@ -105,27 +105,27 @@ public class TelaCadProduto extends javax.swing.JFrame {
         this.jButtonSair = jButtonSair;
     }
 
-    public JComboBox<String> getjComboBox1() {
+    public JComboBox<Tamanho> getjComboBox1() {
 	return jComboBox1;
     }
 
-    public void setjComboBox1(JComboBox<String> jComboBox1) {
+    public void setjComboBox1(JComboBox<Tamanho> jComboBox1) {
 	this.jComboBox1 = jComboBox1;
     }
 
-    public JComboBox<String> getjComboBox2() {
+    public JComboBox<TipoProduto> getjComboBox2() {
 	return jComboBox2;
     }
 
-    public void setjComboBox2(JComboBox<String> jComboBox2) {
+    public void setjComboBox2(JComboBox<TipoProduto> jComboBox2) {
 	this.jComboBox2 = jComboBox2;
     }
 
-    public JComboBox<String> getjComboBox3() {
+    public JComboBox<Marca> getjComboBox3() {
 	return jComboBox3;
     }
 
-    public void setjComboBox3(JComboBox<String> jComboBox3) {
+    public void setjComboBox3(JComboBox<Marca> jComboBox3) {
 	this.jComboBox3 = jComboBox3;
     }
 
@@ -226,7 +226,6 @@ public class TelaCadProduto extends javax.swing.JFrame {
 
         jLabel2.setText("Nome:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecione" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -239,12 +238,8 @@ public class TelaCadProduto extends javax.swing.JFrame {
         jLId2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLId2.setText("Tipo de Produto:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecione" }));
-
         jLId3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLId3.setText("Marca:");
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecione" }));
 
         jLabel3.setText("Valor:");
 
@@ -402,9 +397,9 @@ public class TelaCadProduto extends javax.swing.JFrame {
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<Tamanho> jComboBox1;
+    private javax.swing.JComboBox<TipoProduto> jComboBox2;
+    private javax.swing.JComboBox<Marca> jComboBox3;
     private javax.swing.JLabel jLId;
     private javax.swing.JLabel jLId1;
     private javax.swing.JLabel jLId2;

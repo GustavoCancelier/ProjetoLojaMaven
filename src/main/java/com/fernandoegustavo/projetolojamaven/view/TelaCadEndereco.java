@@ -1,11 +1,13 @@
 package com.fernandoegustavo.projetolojamaven.view;
 
+import com.fernandoegustavo.projetolojamaven.model.DAO.BairroDAO;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import com.fernandoegustavo.projetolojamaven.model.DAO.CidadeDAO;
 import com.fernandoegustavo.projetolojamaven.model.bo.Cidade;
+import com.fernandoegustavo.projetolojamaven.model.bo.Bairro;
 import java.util.List;
 
 /**
@@ -19,32 +21,43 @@ public class TelaCadEndereco extends javax.swing.JFrame {
      */
     public TelaCadEndereco() {
         initComponents();
-	carregarCombo();
+	carregarComboCidade();
+	carregarComboBairro();
     }
 
-  public void carregarCombo(){
+  public void carregarComboCidade(){
 
           CidadeDAO cidadeDAO = new CidadeDAO();
-          List<Cidade> list = cidadeDAO.retrieve();
-          for(Cidade item: list){
-	    jComboBoxCidade.addItem(item.getDescricaoCidade());
+          List<Cidade> cidadeList = cidadeDAO.retrieve();
+          for(Cidade item: cidadeList){
+	    jComboBoxCidade.addItem(item);
           }
 
     }      
 
-    public JComboBox<String> getjComboBoxBairro() {
+  public void carregarComboBairro(){
+
+          BairroDAO bairroDAO = new BairroDAO();
+          List<Bairro> bairroList = bairroDAO.retrieve();
+          for(Bairro item: bairroList){
+	    jComboBoxBairro.addItem(item);
+          }
+
+    }    
+
+    public JComboBox<Bairro> getjComboBoxBairro() {
 	return jComboBoxBairro;
     }
 
-    public void setjComboBoxBairro(JComboBox<String> jComboBoxBairro) {
+    public void setjComboBoxBairro(JComboBox<Bairro> jComboBoxBairro) {
 	this.jComboBoxBairro = jComboBoxBairro;
     }
 
-    public JComboBox<String> getjComboBoxCidade() {
+    public JComboBox<Cidade> getjComboBoxCidade() {
 	return jComboBoxCidade;
     }
 
-    public void setjComboBoxCidade(JComboBox<String> jComboBoxCidade) {
+    public void setjComboBoxCidade(JComboBox<Cidade> jComboBoxCidade) {
 	this.jComboBoxCidade = jComboBoxCidade;
     }
 
@@ -122,13 +135,7 @@ public class TelaCadEndereco extends javax.swing.JFrame {
         this.jTFCEP = jTFCEP;
     }
 
-    public JComboBox<String> getjComboBox1() {
-	return jComboBoxBairro;
-    }
 
-    public void setjComboBox1(JComboBox<String> jComboBox1) {
-	this.jComboBoxBairro = jComboBox1;
-    }
 
 
 
@@ -211,7 +218,6 @@ public class TelaCadEndereco extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxBairro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
         jComboBoxBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxBairroActionPerformed(evt);
@@ -400,8 +406,8 @@ public class TelaCadEndereco extends javax.swing.JFrame {
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
-    private javax.swing.JComboBox<String> jComboBoxBairro;
-    private javax.swing.JComboBox<String> jComboBoxCidade;
+    private javax.swing.JComboBox<Bairro> jComboBoxBairro;
+    private javax.swing.JComboBox<Cidade> jComboBoxCidade;
     private javax.swing.JLabel jLId;
     private javax.swing.JLabel jLId1;
     private javax.swing.JLabel jLId2;

@@ -24,18 +24,8 @@ public class TelaCadBairro extends javax.swing.JFrame {
      */
     public TelaCadBairro() {
         initComponents();
-	carregarCombo();
     }
 
-  public void carregarCombo(){
-
-          CidadeDAO cidadeDAO = new CidadeDAO();
-          List<Cidade> list = cidadeDAO.retrieve();
-          for(Cidade item: list){
-	    jComboBox1.addItem(item.getDescricaoCidade());
-          }
-
-    }      
 
     public JButton getjButtonBuscar() {
         return jButtonBuscar;
@@ -93,13 +83,6 @@ public class TelaCadBairro extends javax.swing.JFrame {
         this.jTFNomeBairro = jTFNomeBairro;
     }
 
-    public JComboBox<String> getjComboBox1() {
-	return jComboBox1;
-    }
-
-    public void setjComboBox1(JComboBox<String> jComboBox1) {
-	this.jComboBox1 = jComboBox1;
-    }
 
 
 
@@ -123,8 +106,6 @@ public class TelaCadBairro extends javax.swing.JFrame {
         jTFIdCidade = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jTFNomeBairro = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLId1 = new javax.swing.JLabel();
         jPanelBotoes = new javax.swing.JPanel();
         jButtonNovo = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
@@ -173,15 +154,6 @@ public class TelaCadBairro extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        jLId1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLId1.setText("Cidade:");
-
         javax.swing.GroupLayout jPanelDadosLayout = new javax.swing.GroupLayout(jPanelDados);
         jPanelDados.setLayout(jPanelDadosLayout);
         jPanelDadosLayout.setHorizontalGroup(
@@ -191,16 +163,13 @@ public class TelaCadBairro extends javax.swing.JFrame {
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTFNomeBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
                     .addGroup(jPanelDadosLayout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanelDadosLayout.createSequentialGroup()
-                        .addComponent(jLId)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTFIdCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(102, 102, 102)
-                        .addComponent(jLId1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanelDadosLayout.createSequentialGroup()
+                                .addComponent(jLId)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTFIdCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(65, 65, 65))
         );
         jPanelDadosLayout.setVerticalGroup(
@@ -209,14 +178,12 @@ public class TelaCadBairro extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTFIdCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLId)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLId1))
+                    .addComponent(jLId))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTFNomeBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelDados, java.awt.BorderLayout.LINE_START);
@@ -259,13 +226,6 @@ public class TelaCadBairro extends javax.swing.JFrame {
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonNovoActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
-    
-
-
-    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTFNomeBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNomeBairroActionPerformed
         // TODO add your handling code here:
@@ -315,9 +275,7 @@ public class TelaCadBairro extends javax.swing.JFrame {
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLId;
-    private javax.swing.JLabel jLId1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelBotoes;

@@ -10,8 +10,9 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import com.fernandoegustavo.projetolojamaven.model.DAO.CidadeDAO;
+import com.fernandoegustavo.projetolojamaven.model.DAO.EnderecoDAO;
 import com.fernandoegustavo.projetolojamaven.model.bo.Cidade;
-
+import com.fernandoegustavo.projetolojamaven.model.bo.Endereco;
 /**
  *
  * @author house
@@ -23,22 +24,52 @@ public class TelaCadFornecedor extends javax.swing.JFrame {
      */
     public TelaCadFornecedor() {
         initComponents();
-//	carregarComboCidade();
-        jComboBoxCidade.addItem("ASD");
+	carregarComboCidade();
+	carregarComboEndereco();
     }
-    
-    public void carregarComboCidade(){
+     
+  public void carregarComboCidade(){
 
-      CidadeDAO cidadeDAO = new CidadeDAO();
-      List<Cidade> list = cidadeDAO.retrieve();
-      for(Cidade item: list){
-        jComboBoxCidade.addItem(item.getDescricaoCidade());
-      }
+          CidadeDAO cidadeDAO = new CidadeDAO();
+          List<Cidade> cidadeList = cidadeDAO.retrieve();
+          for(Cidade item: cidadeList){
+	    jComboBoxCidade.addItem(item);
+          }
 
-    }    
+    }     
+
+
+  public void carregarComboEndereco(){
+
+          EnderecoDAO enderecoDAO = new EnderecoDAO();
+          List<Endereco> enderecoList = enderecoDAO.retrieve();
+          for(Endereco item: enderecoList){
+	    jComboBoxCEP.addItem(item);
+          }
+
+    }     
+
+
     public JPanel getjPanelDados() {
         return jPanelDados;
     }
+
+    public JComboBox<Endereco> getjComboBoxCEP() {
+	return jComboBoxCEP;
+    }
+
+    public void setjComboBoxCEP(JComboBox<Endereco> jComboBoxCEP) {
+	this.jComboBoxCEP = jComboBoxCEP;
+    }
+
+    public JComboBox<Cidade> getjComboBoxCidade() {
+	return jComboBoxCidade;
+    }
+
+    public void setjComboBoxCidade(JComboBox<Cidade> jComboBoxCidade) {
+	this.jComboBoxCidade = jComboBoxCidade;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,7 +158,6 @@ public class TelaCadFornecedor extends javax.swing.JFrame {
 
         jLabel8.setText("CEP:");
 
-        jComboBoxCEP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "dsa" }));
         jComboBoxCEP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxCEPActionPerformed(evt);
@@ -277,21 +307,7 @@ public class TelaCadFornecedor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxCEPActionPerformed
 
-    public JComboBox<String> getjComboBoxCEP() {
-	return jComboBoxCEP;
-    }
 
-    public void setjComboBoxCEP(JComboBox<String> jComboBoxCEP) {
-	this.jComboBoxCEP = jComboBoxCEP;
-    }
-
-    public JComboBox<String> getjComboBoxCidade() {
-	return jComboBoxCidade;
-    }
-
-    public void setjComboBoxCidade(JComboBox<String> jComboBoxCidade) {
-	this.jComboBoxCidade = jComboBoxCidade;
-    }
 
     /**
      * @param args the command line arguments
@@ -353,8 +369,8 @@ public class TelaCadFornecedor extends javax.swing.JFrame {
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
-    private javax.swing.JComboBox<String> jComboBoxCEP;
-    private javax.swing.JComboBox<String> jComboBoxCidade;
+    private javax.swing.JComboBox<Endereco> jComboBoxCEP;
+    private javax.swing.JComboBox<Cidade> jComboBoxCidade;
     private javax.swing.JLabel jLId;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

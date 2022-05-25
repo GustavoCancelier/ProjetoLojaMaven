@@ -56,36 +56,35 @@ public class ControllerCadProduto implements ActionListener {
             Produto produto = new Produto();
 
 
-	    String tempTamanho;
-            tempTamanho = this.telaCadProduto.getjComboBox1().getSelectedItem().toString();
-
-	    Tamanho tamanho = new Tamanho();
-	    TamanhoDAO tamanhoDAO = new TamanhoDAO();
-	    tamanho = tamanhoDAO.retrieve(tempTamanho);
-
-
-	    String tempTipoProduto;
-            tempTipoProduto = this.telaCadProduto.getjComboBox2().getSelectedItem().toString();
-
-	    TipoProduto tipoProduto = new TipoProduto();
-	    TipoProdutoDAO tipoProdutoDAO = new TipoProdutoDAO();
-	    tipoProduto = tipoProdutoDAO.retrieve(tempTipoProduto);	    
-
-	    String tempMarca;
-            tempMarca = this.telaCadProduto.getjComboBox3().getSelectedItem().toString();
-
-	    Marca marca = new Marca();
-	    MarcaDAO marcaDAO = new MarcaDAO();
-	    marca = marcaDAO.retrieve(tempMarca);	
+//	    String tempTamanho;
+//            tempTamanho = this.telaCadProduto.getjComboBox1().getSelectedItem().toString();
+//
+//	    Tamanho tamanho = new Tamanho();
+//	    TamanhoDAO tamanhoDAO = new TamanhoDAO();
+//	    tamanho = tamanhoDAO.retrieve(tempTamanho);
 
 
+//	    String tempTipoProduto;
+//            tempTipoProduto = this.telaCadProduto.getjComboBox2().getSelectedItem().toString();
+//
+//	    TipoProduto tipoProduto = new TipoProduto();
+//	    TipoProdutoDAO tipoProdutoDAO = new TipoProdutoDAO();
+//	    tipoProduto = tipoProdutoDAO.retrieve(tempTipoProduto);	    
 
-	    
+//	    String tempMarca;
+//            tempMarca = this.telaCadProduto.getjComboBox3().getSelectedItem().toString();
+//
+//	    Marca marca = new Marca();
+//	    MarcaDAO marcaDAO = new MarcaDAO();
+//	    marca = marcaDAO.retrieve(tempMarca);	
+
+
+
+	    produto.setMarca_idmarca((Marca) this.telaCadProduto.getjComboBox3().getSelectedItem());
+	    produto.setTipoProduto_idtipoProduto((TipoProduto) this.telaCadProduto.getjComboBox2().getSelectedItem());
+	    produto.setTamanho_idtamanho((Tamanho) this.telaCadProduto.getjComboBox1().getSelectedItem());
             produto.setDescricaoProduto(this.telaCadProduto.getjTFNome().getText());
 	    produto.setValProduto(Float.parseFloat(this.telaCadProduto.getjTFValor().getText()));
-	    produto.setMarca_idmarca(marca.getIdMarca());
-	    produto.setTamanho_idtamanho(tamanho.getIdTamanho());
-	    produto.setTipoProduto_idtipoProduto(tipoProduto.getIdTipoProduto());
 
 
             ProdutoService produtoService = new ProdutoService();

@@ -22,7 +22,6 @@ public class ControllerBusBairro implements ActionListener{
         for (Bairro bairroAtualDaLista : bairroService.buscar()) {
             tabela.addRow(new Object[]{ bairroAtualDaLista.getIdBairro(), 
                                         bairroAtualDaLista.getDescricaoBairro()});
-//                                        bairroAtualDaLista.getCidadeMae()});
         }
     }
     @Override

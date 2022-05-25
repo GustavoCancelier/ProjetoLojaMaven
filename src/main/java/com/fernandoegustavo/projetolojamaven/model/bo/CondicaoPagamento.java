@@ -4,20 +4,22 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table (name = "condicaoPagamento")
 public class CondicaoPagamento implements Serializable {
     
     @Id
     private int idcondicaoPagamento;
     
-    @Column
+    @Column (name = "descricaoCondicaoPagamento")
     private String descricaoCondicaoPagamento;
     
-    @Column
+    @Column (name = "numDiasAtePrimeiraParcela")
     private int numDiasAtePrimeiraParcela;
     
-    @Column
+    @Column (name = "numDiasEntreParcelas")
     private int numDiasEntreParcelas;
 
     public CondicaoPagamento() {

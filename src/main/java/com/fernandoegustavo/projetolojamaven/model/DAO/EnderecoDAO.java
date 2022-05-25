@@ -53,12 +53,12 @@ private static EnderecoDAO instance;
     
     @Override
     public List<Endereco> retrieve() {
-        List<Endereco> cidadesLista;
+        List<Endereco> enderecoLista;
         CriteriaQuery<Endereco> criteria = entityManager.getCriteriaBuilder().createQuery(Endereco.class);
 
         criteria.select(criteria.from(Endereco.class));
-        cidadesLista = entityManager.createQuery(criteria).getResultList();
-        return cidadesLista;
+        enderecoLista = entityManager.createQuery(criteria).getResultList();
+        return enderecoLista;
     }
     
     @Override
@@ -98,7 +98,7 @@ private static EnderecoDAO instance;
 
     @Override
     public Endereco retrieve(String descricao) {
-        return entityManager.find(Endereco.class, descricao);
+        return this.retrieve().get(0);
     }
 
 

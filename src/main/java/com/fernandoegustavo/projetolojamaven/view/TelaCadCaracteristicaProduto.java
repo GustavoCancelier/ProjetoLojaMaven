@@ -43,7 +43,7 @@ public class TelaCadCaracteristicaProduto extends javax.swing.JFrame {
           ProdutoDAO produtoDAO = new ProdutoDAO();
           List<Produto> list = produtoDAO.retrieve();
           for(Produto item: list){
-	    jComboBox1.addItem(item.getDescricaoProduto());
+	    jComboBox1.addItem(item);
           }
 
     }      
@@ -54,7 +54,7 @@ public class TelaCadCaracteristicaProduto extends javax.swing.JFrame {
           CorDAO corDAO = new CorDAO();
           List<Cor> list = corDAO.retrieve();
           for(Cor item: list){
-	    jComboBox2.addItem(item.getDescricaoCor());
+	    jComboBox2.addItem(item);
           }
 
     }  
@@ -65,7 +65,7 @@ public class TelaCadCaracteristicaProduto extends javax.swing.JFrame {
           TamanhoDAO tamanhoDAO = new TamanhoDAO();
           List<Tamanho> list = tamanhoDAO.retrieve();
           for(Tamanho item: list){
-	    jComboBox3.addItem(item.getDescricaoTamanho());
+	    jComboBox3.addItem(item);
           }
 
     }  
@@ -120,19 +120,19 @@ public class TelaCadCaracteristicaProduto extends javax.swing.JFrame {
         this.jTFIdCidade = jTFIdCidade;
     }
 
-    public JComboBox<String> getjComboBox2() {
+    public JComboBox<Cor> getjComboBox2() {
 	return jComboBox2;
     }
 
-    public void setjComboBox2(JComboBox<String> jComboBox2) {
+    public void setjComboBox2(JComboBox<Cor> jComboBox2) {
 	this.jComboBox2 = jComboBox2;
     }
 
-    public JComboBox<String> getjComboBox3() {
+    public JComboBox<Tamanho> getjComboBox3() {
 	return jComboBox3;
     }
 
-    public void setjComboBox3(JComboBox<String> jComboBox3) {
+    public void setjComboBox3(JComboBox<Tamanho> jComboBox3) {
 	this.jComboBox3 = jComboBox3;
     }
 
@@ -156,11 +156,11 @@ public class TelaCadCaracteristicaProduto extends javax.swing.JFrame {
 
  
 
-    public JComboBox<String> getjComboBox1() {
+    public JComboBox<Produto> getjComboBox1() {
 	return jComboBox1;
     }
 
-    public void setjComboBox1(JComboBox<String> jComboBox1) {
+    public void setjComboBox1(JComboBox<Produto> jComboBox1) {
 	this.jComboBox1 = jComboBox1;
     }
 
@@ -449,9 +449,9 @@ public class TelaCadCaracteristicaProduto extends javax.swing.JFrame {
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<Produto> jComboBox1;
+    private javax.swing.JComboBox<Cor> jComboBox2;
+    private javax.swing.JComboBox<Tamanho> jComboBox3;
     private javax.swing.JLabel jLId;
     private javax.swing.JLabel jLId1;
     private javax.swing.JLabel jLId2;

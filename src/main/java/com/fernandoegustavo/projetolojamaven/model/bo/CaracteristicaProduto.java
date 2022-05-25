@@ -7,8 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table (name = "caracteristicaProduto")
 public class CaracteristicaProduto implements Serializable{
 	
 	@Id
@@ -16,7 +18,7 @@ public class CaracteristicaProduto implements Serializable{
     private int idCaracteristicaProduto;
     
 	@OneToOne
-	@JoinColumn (name = "produto_idProduto")
+	@JoinColumn (name = "produto_idproduto")
 	private Produto produto_idproduto;
     
 	@OneToOne

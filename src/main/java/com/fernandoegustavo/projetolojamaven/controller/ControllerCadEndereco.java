@@ -17,6 +17,7 @@ import com.fernandoegustavo.projetolojamaven.service.BairroService;
 import com.fernandoegustavo.projetolojamaven.service.EnderecoService;
 import com.fernandoegustavo.projetolojamaven.view.ModeloCadastros;
 import com.fernandoegustavo.projetolojamaven.view.TelaBusBairro;
+import com.fernandoegustavo.projetolojamaven.view.TelaBusEndereco;
 import com.fernandoegustavo.projetolojamaven.view.TelaCadBairro;
 import com.fernandoegustavo.projetolojamaven.view.TelaCadEndereco;
 
@@ -50,14 +51,12 @@ public class ControllerCadEndereco implements ActionListener {
 	  BairroDAO bairroDAO = new BairroDAO();
 	    CidadeDAO cidadeDAO = new CidadeDAO();
 
-	    Cidade tempCidade = cidadeDAO.retrieve(telaCadEndereco.getjComboBoxCidade().getSelectedItem().toString());
-
-
-          List<Bairro> list = bairroDAO.retrieve();
-	  telaCadEndereco.getjComboBoxBairro().removeAllItems();
-          for(Bairro item: list){
-	    telaCadEndereco.getjComboBoxBairro().addItem(item.getDescricaoBairro());
-          }
+//
+//          List<Bairro> list = bairroDAO.retrieve();
+//	  telaCadEndereco.getjComboBoxBairro().removeAllItems();
+//          for(Bairro item: list){
+//	    telaCadEndereco.getjComboBoxBairro().addItem(item());
+//          }
 
 //	    System.out.println(telaCadCliente.getjComboBoxCidade().getSelectedItem().toString());
 	}
@@ -81,14 +80,14 @@ public class ControllerCadEndereco implements ActionListener {
 
 	    String tempString, tempString2;
 
-            tempString = this.telaCadEndereco.getjComboBoxBairro().getSelectedItem().toString();
-	    BairroDAO bairroDAO = new BairroDAO();
-	    endereco.setBairro(bairroDAO.retrieve(tempString));
-
-
-	    tempString2 = this.telaCadEndereco.getjComboBoxCidade().getSelectedItem().toString();
-	    CidadeDAO cidadeDAO = new CidadeDAO();
-	    endereco.setCidade(cidadeDAO.retrieve(tempString2));
+//            tempString = this.telaCadEndereco.getjComboBoxBairro().getSelectedItem().toString();
+//	    BairroDAO bairroDAO = new BairroDAO();
+	    endereco.setBairro((Bairro) this.telaCadEndereco.getjComboBoxBairro().getSelectedItem());
+//
+//
+//	    tempString2 = this.telaCadEndereco.getjComboBoxCidade().getSelectedItem().toString();
+//	    CidadeDAO cidadeDAO = new CidadeDAO();
+	    endereco.setCidade((Cidade) this.telaCadEndereco.getjComboBoxCidade().getSelectedItem());
 
             EnderecoService enderecoService = new EnderecoService();
            
@@ -102,27 +101,25 @@ public class ControllerCadEndereco implements ActionListener {
             ativa(true);
             ligaDesliga(false);
         } else if (acao.getSource() == telaCadEndereco.getjButtonBuscar()) {
-//	    codigo = 0;
-//            //chamada da tela da busca
-//            TelaBusBairro telaBusBairro = new TelaBusBairro(null, true);
-//            ControllerBusBairro controllerBusBairro = new ControllerBusBairro(telaBusBairro);
-//            telaBusBairro.setVisible(true);
-//
-//            if (codigo != 0) {
-//                Bairro bairro;
-//                BairroService bairroService = new BairroService();
-//                bairro = bairroService.buscar(codigo);
-//
-//                ativa(false);
-//                ligaDesliga(true);
-//
-//                this.telaCadBairro.getjTFIdCidade().setText(bairro.getIdBairro()+ "");
-//                this.telaCadBairro.getjTFNomeBairro().setText(bairro.getDescricaoBairro());
-////                this.telaCadBairro.getjTFUF().setText(cidade.getUfCidade());
-//		this.telaCadBairro.getjComboBox1().setSelectedItem(bairro.getCidadeMae());
-//
-//                this.telaCadBairro.getjTFIdCidade().setEnabled(false);
-//            }
+	    codigo = 0;
+            //chamada da tela da busca
+            TelaBusEndereco telaBusEndereco = new TelaBusEndereco(null, true);
+            ControllerBusEndereco controllerBusEndereco = new ControllerBusEndereco(telaBusEndereco);
+            telaBusEndereco.setVisible(true);
+
+            if (codigo !=0) {
+                Endereco endereco;
+                EnderecoService enderecoService = new EnderecoService();
+                endereco = enderecoService.buscar(codigo);
+
+                ativa(false);
+                ligaDesliga(true);
+
+                this.telaCadEndereco.getjTFIdCidade().setText(endereco.getIdCep()+ "");
+                this.telaCadEndereco.getjTFNomeBairro().setText(endereco.getCepCep());
+
+                this.telaCadEndereco.getjTFIdCidade().setEnabled(false);
+            }
         } else if (acao.getSource() == telaCadEndereco.getjButtonSair()) {
 	    this.telaCadEndereco.dispose();
         }

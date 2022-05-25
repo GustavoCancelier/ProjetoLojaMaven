@@ -6,26 +6,28 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table (name = "vendedor")
 public class Vendedor extends Pessoa implements Serializable{
     
     @Id
     private int idvendedor;
     
-    @Column
+    @Column (name = "cpfVendedor")
     private String cpfVendedor;
     
-    @Column
+    @Column (name = "foneVendedor")
     private String foneVendedor;
     
-    @Column
+    @Column (name = "foneVendedor2")
     private String fone2Vendedor;
     
-    @Column
+    @Column (name = "percentComissaoVenda")
     private float PercentComissaoVenda;
     
-    @Column
+    @Column (name = "percentComissaoRecbto")
     private float percentComissaoRecebto;
     
     @OneToOne(fetch = FetchType.LAZY)
@@ -38,7 +40,7 @@ public class Vendedor extends Pessoa implements Serializable{
     }
 
     public Vendedor(int idvendedor, String cpfVendedor, String foneVendedor, String fone2Vendedor, float PercentComissaoVenda, float percentComissaoRecebto, Endereco endereco_idcep, Venda venda_idvenda, String nome, String compleEndereco, String cep, String email, String status) {
-        super(nome, compleEndereco, cep, email, status);
+        super(nome, compleEndereco, email);
         this.idvendedor = idvendedor;
         this.cpfVendedor = cpfVendedor;
         this.foneVendedor = foneVendedor;
