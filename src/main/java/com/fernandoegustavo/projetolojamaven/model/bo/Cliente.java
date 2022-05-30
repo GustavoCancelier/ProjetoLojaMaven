@@ -1,20 +1,28 @@
 package com.fernandoegustavo.projetolojamaven.model.bo;
 
 import java.io.Serializable;
+import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table (name = "cliente")
+@AttributeOverride(name = "nome", column = @Column(name = "nomeCliente"))
+@AttributeOverride(name = "email", column = @Column(name = "emailCliente"))
+@AttributeOverride(name = "compleEndereco", column = @Column(name = "compleEnderecoCliente"))
+@AttributeOverride(name = "cep", column = @Column(name = "cep"))
 public class Cliente extends Pessoa implements Serializable {
     
     @Id
+    @Column (name = "idcliente")
     private int idcliente;
     
-    @Column (name = "dtNascCliente")
+    @Column (name = "dtNasCliente")
     private String dtNascCliente;
     
     @Column (name = "cpfCliente")

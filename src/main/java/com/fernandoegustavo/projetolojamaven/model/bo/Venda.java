@@ -7,8 +7,10 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table (name = "venda")
 public class Venda implements Serializable {
     @Id
     @Column (name = "idvenda")

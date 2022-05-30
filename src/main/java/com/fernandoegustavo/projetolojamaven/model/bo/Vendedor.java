@@ -1,18 +1,26 @@
 package com.fernandoegustavo.projetolojamaven.model.bo;
 
 import java.io.Serializable;
+import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table (name = "vendedor")
+@AttributeOverride(name = "nome", column = @Column(name = "nomeVendedor"))
+@AttributeOverride(name = "email", column = @Column(name = "emailVendedor"))
+@AttributeOverride(name = "compleEndereco", column = @Column(name = "compleEnderecoVendedor"))
+@AttributeOverride(name = "cep", column = @Column(name = "cep"))
 public class Vendedor extends Pessoa implements Serializable{
     
     @Id
+    @Column (name= "idvendedor")
     private int idvendedor;
     
     @Column (name = "cpfVendedor")
@@ -21,20 +29,22 @@ public class Vendedor extends Pessoa implements Serializable{
     @Column (name = "foneVendedor")
     private String foneVendedor;
     
-    @Column (name = "foneVendedor2")
+    @Column (name = "fone2Vendedor")
     private String fone2Vendedor;
     
     @Column (name = "percentComissaoVenda")
     private float PercentComissaoVenda;
     
-    @Column (name = "percentComissaoRecbto")
+    @Column (name = "percentComissaoRecebto")
     private float percentComissaoRecebto;
     
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn (name = "endereco_idcep")
     private Endereco endereco_idcep;
     
-    @OneToOne(fetch = FetchType.LAZY)
-    private Venda venda_idvenda;
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinColumn (name = "venda_idvenda")
+//    private Venda venda_idvenda;
 
     public Vendedor() {
     }
@@ -48,7 +58,6 @@ public class Vendedor extends Pessoa implements Serializable{
         this.PercentComissaoVenda = PercentComissaoVenda;
         this.percentComissaoRecebto = percentComissaoRecebto;
         this.endereco_idcep = endereco_idcep;
-        this.venda_idvenda = venda_idvenda;
     }
 
     public int getIdvendedor() {
@@ -107,13 +116,13 @@ public class Vendedor extends Pessoa implements Serializable{
         this.endereco_idcep = endereco_idcep;
     }
 
-    public Venda getVenda_idvenda() {
-        return venda_idvenda;
-    }
-
-    public void setVenda_idvenda(Venda venda_idvenda) {
-        this.venda_idvenda = venda_idvenda;
-    }
+//    public Venda getVenda_idvenda() {
+//        return venda_idvenda;
+//    }
+//
+//    public void setVenda_idvenda(Venda venda_idvenda) {
+//        this.venda_idvenda = venda_idvenda;
+//    }
 
     @Override
     public String toString() {

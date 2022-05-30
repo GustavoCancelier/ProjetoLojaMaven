@@ -102,9 +102,10 @@ public class ControllerCadVendas implements ActionListener {
 		    telaVendas.dispose();
 
                 } else if (evt.getKeyCode() == KeyEvent.VK_F4) {
-
+		    System.out.println("AQUI");
 		 codigo = 0;
             //chamada da tela da busca
+		    System.out.println("AQUIii");
             TelaBusCondicaoPagamento telaBusCondicaoPagamento = new TelaBusCondicaoPagamento(null, true);
             ControllerBusCondicaoPagamento controllerBusCondicaoPagamento = new ControllerBusCondicaoPagamento(telaBusCondicaoPagamento);
             telaBusCondicaoPagamento.setVisible(true);

@@ -35,7 +35,7 @@ public class ControllerCadVendedor implements ActionListener {
         telaCadVendedor.getjButtonCancelar().addActionListener(this);
         telaCadVendedor.getjButtonGravar().addActionListener(this);
         telaCadVendedor.getjButtonSair().addActionListener(this);
-        telaCadVendedor.getjComboBoxCidade().addActionListener(this);
+//        telaCadVendedor.getjComboBoxCidade().addActionListener(this);
         
         ativa(true);
         ligaDesliga(false);
@@ -46,19 +46,19 @@ public class ControllerCadVendedor implements ActionListener {
     //Não foram desenvolvidas ainda as funcionalidades de persistência
     @Override
     public void actionPerformed(ActionEvent acao) {
-        if(acao.getSource() == telaCadVendedor.getjComboBoxCidade()){
-	    EnderecoDAO enderecoDAO = new EnderecoDAO();
-	    CidadeDAO cidadeDAO = new CidadeDAO();
-	    
-	    Cidade tempCidade = cidadeDAO.retrieve(telaCadVendedor.getjComboBoxCidade().getSelectedItem().toString());
-
-
-          List<Endereco> list = enderecoDAO.retrieve();
-	  telaCadVendedor.getjComboBoxCEP().removeAllItems();
-          for(Endereco item: list){
-	    telaCadVendedor.getjComboBoxCEP().addItem(item.getCepCep());
-          }
-	  }
+//        if(acao.getSource() == telaCadVendedor.getjComboBoxCidade()){
+//	    EnderecoDAO enderecoDAO = new EnderecoDAO();
+//	    CidadeDAO cidadeDAO = new CidadeDAO();
+//	    
+//	    Cidade tempCidade = cidadeDAO.retrieve(telaCadVendedor.getjComboBoxCidade().getSelectedItem().toString());
+//
+//
+//          List<Endereco> list = enderecoDAO.retrieve();
+//	  telaCadVendedor.getjComboBoxCEP().removeAllItems();
+//          for(Endereco item: list){
+//	    telaCadVendedor.getjComboBoxCEP().addItem(item.getCepCep());
+//          }
+//	  }
         if (acao.getSource() == telaCadVendedor.getjButtonNovo()) {
             ativa(false);
             ligaDesliga(true);

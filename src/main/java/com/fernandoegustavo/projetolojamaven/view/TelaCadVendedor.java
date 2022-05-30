@@ -10,7 +10,9 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import com.fernandoegustavo.projetolojamaven.model.DAO.CidadeDAO;
+import com.fernandoegustavo.projetolojamaven.model.DAO.EnderecoDAO;
 import com.fernandoegustavo.projetolojamaven.model.bo.Cidade;
+import com.fernandoegustavo.projetolojamaven.model.bo.Endereco;
 
 /**
  *
@@ -23,18 +25,18 @@ public class TelaCadVendedor extends javax.swing.JFrame {
      */
     public TelaCadVendedor() {
         initComponents();
-        carregarComboCidade();
+	carregarComboEndereco();
     }
     
-    public void carregarComboCidade(){
+  public void carregarComboEndereco(){
 
-      CidadeDAO cidadeDAO = new CidadeDAO();
-      List<Cidade> list = cidadeDAO.retrieve();
-      for(Cidade item: list){
-        jComboBoxCidade.addItem(item.getDescricaoCidade());
-      }
-    }
+          EnderecoDAO enderecoDAO = new EnderecoDAO();
+          List<Endereco> enderecoList = enderecoDAO.retrieve();
+          for(Endereco item: enderecoList){
+	    jComboBoxCEP.addItem(item);
+          }
 
+    }     
     public JPanel getjPanelDados() {
         return jPanelDados;
     }
@@ -62,10 +64,8 @@ public class TelaCadVendedor extends javax.swing.JFrame {
         email = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         compleEndereco = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jComboBoxCEP = new javax.swing.JComboBox<>();
-        jComboBoxCidade = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         cpf = new javax.swing.JTextField();
         jTFIdVendedor = new javax.swing.JTextField();
@@ -123,9 +123,13 @@ public class TelaCadVendedor extends javax.swing.JFrame {
 
         jLabel6.setText("Comp. Endereço:");
 
-        jLabel7.setText("Cidade:");
-
         jLabel8.setText("CEP");
+
+        jComboBoxCEP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCEPActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Fone:");
 
@@ -149,14 +153,11 @@ public class TelaCadVendedor extends javax.swing.JFrame {
                         .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanelDadosLayout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(10, 10, 10)
                                     .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jLabel4))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanelDadosLayout.createSequentialGroup()
-                                            .addComponent(jComboBoxCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDadosLayout.createSequentialGroup()
+                                            .addGap(0, 0, Short.MAX_VALUE)
                                             .addComponent(jLabel8)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jComboBoxCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -190,7 +191,7 @@ public class TelaCadVendedor extends javax.swing.JFrame {
                                 .addComponent(jLId)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTFIdVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 69, Short.MAX_VALUE)))
+                        .addGap(0, 21, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelDadosLayout.setVerticalGroup(
@@ -222,15 +223,13 @@ public class TelaCadVendedor extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
                     .addComponent(jLabel8)
-                    .addComponent(jComboBoxCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxCEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(jPanelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(compleEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelDados, java.awt.BorderLayout.CENTER);
@@ -269,6 +268,10 @@ public class TelaCadVendedor extends javax.swing.JFrame {
     private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeActionPerformed
+
+    private void jComboBoxCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCEPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCEPActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,8 +381,7 @@ public class TelaCadVendedor extends javax.swing.JFrame {
     private javax.swing.JButton jButtonGravar;
     private javax.swing.JButton jButtonNovo;
     private javax.swing.JButton jButtonSair;
-    private javax.swing.JComboBox<String> jComboBoxCEP;
-    private javax.swing.JComboBox<String> jComboBoxCidade;
+    private javax.swing.JComboBox<Endereco> jComboBoxCEP;
     private javax.swing.JLabel jLId;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -388,7 +390,6 @@ public class TelaCadVendedor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JPanel jPanelBotoes;
@@ -468,21 +469,15 @@ public class TelaCadVendedor extends javax.swing.JFrame {
         this.fone = fone;
     }
 
-    public JComboBox<String> getjComboBoxCEP() {
+    public JComboBox<Endereco> getjComboBoxCEP() {
         return jComboBoxCEP;
     }
 
-    public void setjComboBoxCEP(JComboBox<String> jComboBoxCEP) {
+    public void setjComboBoxCEP(JComboBox<Endereco> jComboBoxCEP) {
         this.jComboBoxCEP = jComboBoxCEP;
     }
 
-    public JComboBox<String> getjComboBoxCidade() {
-        return jComboBoxCidade;
-    }
 
-    public void setjComboBoxCidade(JComboBox<String> jComboBoxCidade) {
-        this.jComboBoxCidade = jComboBoxCidade;
-    }
 
     public JTextField getPercComissaoRecebto() {
         return percComissaoRecebto;

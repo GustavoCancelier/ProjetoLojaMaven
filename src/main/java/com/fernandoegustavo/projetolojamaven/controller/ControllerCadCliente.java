@@ -33,7 +33,7 @@ public class ControllerCadCliente implements ActionListener {
         telaCadCliente.getjButtonCancelar().addActionListener(this);
         telaCadCliente.getjButtonGravar().addActionListener(this);
         telaCadCliente.getjButtonSair().addActionListener(this);
-        telaCadCliente.getjComboBoxCidade().addActionListener(this);
+//        telaCadCliente.getjComboBoxCidade().addActionListener(this);
 
 
         ativa(true);
@@ -45,21 +45,21 @@ public class ControllerCadCliente implements ActionListener {
     //Não foram desenvolvidas ainda as funcionalidades de persistência
     @Override
     public void actionPerformed(ActionEvent acao) {
-	if(acao.getSource() == telaCadCliente.getjComboBoxCidade()){
-            EnderecoDAO enderecoDAO = new EnderecoDAO();
-	    CidadeDAO cidadeDAO = new CidadeDAO();
-
-	    Cidade tempCidade = cidadeDAO.retrieve(telaCadCliente.getjComboBoxCidade().getSelectedItem().toString());
-
-
-          List<Endereco> list = enderecoDAO.retrieve();
-	  telaCadCliente.getjComboBoxCep().removeAllItems();
-          for(Endereco item: list){
-	    telaCadCliente.getjComboBoxCep().addItem(item.getCepCep());
-          }
-
-//	    System.out.println(telaCadCliente.getjComboBoxCidade().getSelectedItem().toString());
-	}
+//	if(acao.getSource() == telaCadCliente.getjComboBoxCidade()){
+//            EnderecoDAO enderecoDAO = new EnderecoDAO();
+//	    CidadeDAO cidadeDAO = new CidadeDAO();
+//
+//	    Cidade tempCidade = cidadeDAO.retrieve(telaCadCliente.getjComboBoxCidade().getSelectedItem().toString());
+//
+//
+//          List<Endereco> list = enderecoDAO.retrieve();
+//	  telaCadCliente.getjComboBoxCep().removeAllItems();
+//          for(Endereco item: list){
+//	    telaCadCliente.getjComboBoxCep().addItem(item.getCepCep());
+//          }
+//
+////	    System.out.println(telaCadCliente.getjComboBoxCidade().getSelectedItem().toString());
+//	}
         if (acao.getSource() == telaCadCliente.getjButtonNovo()) {
             ativa(false);
             ligaDesliga(true);
